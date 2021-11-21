@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Personal Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous"/>
+</head>
+<body>
+<div id="header_container">
+  <div id="header"> <a href=" "><img src="images/logo.gif" alt="Total Management" title="Total Management" border="0" /></a>
+    <ul>
+      <li><a href="">Home</a> </li>
+      <li><a href="">About us</a></li>
+      <li><a href="">Whats new</a></li>
+      <li><a href="">Forum</a></li>
+      <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+      <li class="contact"><a href="">Contact</a></li>
+    </ul>
+    <h1>Learn, apply, evolve</h1>
+  </div>
+</div>
+<div id="body1">
+ 
+</div>
+<div id="bodymiddlePan">
+  <h2>Learn on your own</h2>
+  
+  <p class="lasttext"> Organizational Learning supports the learning and development of all College employees through various learning sessions, workshops, programs, conferences, activities and one-on-one support. The Employee Learning platform and registration system allows all employees to easily access a variety of learning opportunities: virtual synchronous, self-directed, self-paced, and just-in-time.</p>
+</div>
+<div id="bodyBottomPan">
+  <div id="Search">
+    <h2>Search Courses</h2>
+    <p>Search for new learning materials</p>
+    <p class="view"><a href="">view</a></p>
+  </div>
+  <div id="History">
+    <h2>Your learning history</h2>
+    <p>See your progress</p>
+    <p class="view"><a href="">view</a></p>
+  </div>
+  <div id="Courses">
+    <h2>Assigned courses</h2>
+    <p>See the courses assigned to you and their deadlines</p>
+    <p class="view"><a href=" ">view</a></p>
+  </div>
+</div>
+<div id="footermainPan">
+  <div id="footerPan">
+    <div id="footerlogoPan"><a href=" "><img src="images/footerlogo.gif" title="Total Management" alt="Total Management" width="290" height="36" border="0" /></a></div>
+    <ul>
+      <li><a href=" ">Home</a>| </li>
+      <li><a href=" ">About</a> | </li>
+      <li><a href=" ">Whats new</a>| </li>
+      <li><a href=" ">Forum</a> | </li>
+      <li><a href=" ">Solution</a> |</li>
+      <li><a href=" ">Contact</a> </li>
+    </ul>
+    <p class="copyright">©total management. all right reserved.</p>
+  </div>
+</div>
+</body>
+</html>
