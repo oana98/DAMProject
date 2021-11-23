@@ -2,97 +2,59 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Employee Management System</title>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-	
+<title>Employee Personal Page</title>
+<meta charset="ISO-8859-1">
+<link href="static/public/css/style.css" rel="stylesheet" th:href="@{static/public/css/style.css}"  type="text/css"/>
 </head>
 <body>
-
-<!-- create navigation bar ( header) -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#" th:href="@{/}">Employee Management System</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<br>
-	<br>
-	
-	<div class="container my-2">
-	<h1>Employees List</h1>
-	
-	<a th:href = "@{/showNewEmployeeForm}" class="btn btn-primary btn-sm mb-3"> Add Employee </a>
-	
-		<table border="1" class = "table table-striped table-responsive-md">
-			<thead>
-				<tr>
-					<th>
-						<a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
-							Employee First Name</a>
-					</th>
-					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
-							Employee Last Name</a>
-					</th>
-					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
-							Employee Email</a>
-					</th>
-					<th> Actions </th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="employee : ${listEmployees}">
-					<td th:text="${employee.firstName}"></td>
-					<td th:text="${employee.lastName}"></td>
-					<td th:text="${employee.email}"></td>
-					<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
-					    <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<div th:if = "${totalPages > 1}">
-			<div class = "row col-sm-10">
-				<div class = "col-sm-2">
-					Total Rows: [[${totalItems}]] 
-				</div>
-				<div class = "col-sm-1">
-					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
-						<a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
-						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
-					</span>
-				</div>
-				<div class = "col-sm-1">
-					<a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
-					<span th:unless="${currentPage < totalPages}">Next</span>
-				</div>
-				
-				 <div class="col-sm-1">
-    				<a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-					<span th:unless="${currentPage < totalPages}">Last</span>
-   				 </div>
-			</div>
-		</div>
-	</div>
+<div id="header_container">
+  <div id="header"> <a href=" "><img src="static/public/img/logo.gif" alt="Total Management" title="Total Management" border="0" /></a>
+    <ul>
+      <li><a>Home</a> </li>
+      <li><a>Whats new</a></li>
+      <li><a>Forum</a></li>
+      <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+      <li class="contact"><a>Contact</a></li>
+    </ul>
+    <h1>Learn, apply, evolve</h1>
+  </div>
+</div>
+<div id="body1">
+</div>
+<div id="bodymiddlePan">
+  <h2>Learn on your own</h2>
+  
+  <p class="lasttext"> Organizational Learning supports the learning and development of all College employees through various learning sessions, workshops, programs, conferences, activities and one-on-one support. The Employee Learning platform and registration system allows all employees to easily access a variety of learning opportunities: virtual synchronous, self-directed, self-paced, and just-in-time.</p>
+</div>
+<div id="bodyBottomPan">
+  <div id="Search">
+    <h2>Search Courses</h2>
+    <p>Search for new learning materials</p>
+    <p class="view"><a href="">view</a></p>
+  </div>
+  <div id="History">
+    <h2>Your learning history</h2>
+    <p>See your progress</p>
+    <p class="view"><a href="">view</a></p>
+  </div>
+  <div id="Courses">
+    <h2>Assigned courses</h2>
+    <p>See the courses assigned to you and their deadlines</p>
+    <p class="view"><a href=" ">view</a></p>
+  </div>
+</div>
+<div id="footermainPan">
+  <div id="footerPan">
+    <div id="footerlogoPan"><a><img src="static/public/img/footerlogo.gif" title="Total Management" alt="Total Management" width="290" height="36" border="0" /></a></div>
+    <ul>
+      <li><a>Home</a>| </li>
+      <li><a>About</a> | </li>
+      <li><a>Whats new</a>| </li>
+      <li><a>Forum</a> | </li>
+      <li><a>Solution</a> |</li>
+      <li><a>Contact</a> </li>
+    </ul>
+  </div>
+</div>
 </body>
 </html>
